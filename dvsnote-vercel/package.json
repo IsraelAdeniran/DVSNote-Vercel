@@ -9,8 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.0.4"
+    "@date-io/date-fns": "^3.0.0",
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@mui/icons-material": "^6.1.10",
+    "@mui/material": "^6.1.10",
+    "@mui/x-date-pickers": "^7.23.1",
+    "axios": "^1.7.7",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "cookie": "^1.0.1",
+    "date-fns": "^3.6.0",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.5",
+    "expo": "^52.0.11",
+    "iron-session": "^8.0.4",
+    "js-cookie": "^3.0.5",
+    "mongodb": "^6.11.0",
+    "mongoose": "^8.8.0",
+    "next": "^15.0.3",
+    "next-auth": "^4.24.10",
+    "nookies": "^2.5.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-native": "^0.76.3",
+    "react-query": "^3.39.3"
   }
 }
