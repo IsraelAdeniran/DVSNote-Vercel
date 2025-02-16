@@ -5,7 +5,7 @@ import { WebView } from 'react-native-webview';
 export default function App() {
   return (
       <WebView
-          source={{ uri: 'https://myandroidapp.vercel.app/' }}  // Link to your live Next.js app
+          source={{ uri: 'https://dvs-note-vercel.vercel.app/register' }} 
       />
   );
 }
