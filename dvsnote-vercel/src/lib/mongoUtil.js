@@ -1,14 +1,14 @@
 // mongoUtil.js
 import { MongoClient } from 'mongodb';
 
-const client = new MongoClient(process.env.DB_URI);
+const client = new MongoClient('mongodb+srv://root:R5lcPSJm1egBE0Z1@dvsnotedb.lozto.mongodb.net/DVSDB?retryWrites=true&w=majority&appName=DVSNoteDB');
 
 let dbConnection;
 
 export async function connectToDatabase() {
     if (!dbConnection) {
         const clientConnection = await client.connect();
-        dbConnection = clientConnection.db('DVSDB');
+        dbConnection = clientConnection.db('DVSDB'); // Ensure 'DVSDB' is your actual database name
     }
     return dbConnection;
 }
