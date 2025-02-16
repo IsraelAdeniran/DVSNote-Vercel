@@ -5,7 +5,7 @@ import { WebView } from 'react-native-webview';
 export default function App() {
   return (
       <WebView
-          source={{ uri: 'https://dvs-note-vercel.vercel.app/register' }} 
+          source={{ uri: 'https://dvs-note-vercel.vercel.app/register' }}
       />
   );
 }
