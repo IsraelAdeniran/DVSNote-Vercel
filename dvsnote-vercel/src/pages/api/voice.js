@@ -6,20 +6,23 @@ export default async function handler(req, res) {
     }
 
     try {
+        // Extracting data from the request body
         const { username, transcript, date } = req.body;
 
+        // Check if required fields are present
         if (!username || !date || !transcript) {
             console.error('Missing required fields:', { username, date, transcript });
             return res.status(400).json({ success: false, message: 'Missing required fields' });
         }
 
+        // Connect to the database
         const db = await connectToDatabase();
 
         // Save the voice transcript to the 'voiceRecords' collection
         await db.collection('voiceRecords').updateOne(
-            { username, date },
-            { $set: { transcript } },
-            { upsert: true }
+            { username, date }, // Query to find existing records
+            { $set: { transcript } }, // Update or insert the transcript
+            { upsert: true } // Insert if record doesn't exist
         );
 
         console.log('Voice transcript saved successfully:', { username, transcript, date });
