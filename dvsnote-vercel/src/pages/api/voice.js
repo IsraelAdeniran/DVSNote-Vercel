@@ -20,9 +20,9 @@ export default async function handler(req, res) {
 
         // Save the voice transcript to the 'voiceRecords' collection
         await db.collection('voiceRecords').updateOne(
-            { username, date }, // Query to find existing records
-            { $set: { transcript } }, // Update or insert the transcript
-            { upsert: true } // Insert if record doesn't exist
+            { username, date },
+            { $set: { transcript } },
+            { upsert: true }
         );
 
         console.log('Voice transcript saved successfully:', { username, transcript, date });
