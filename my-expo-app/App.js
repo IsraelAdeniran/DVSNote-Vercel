@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'; // For React Native styles
+import { StyleSheet } from 'react-native';
 import React from 'react';
 import { WebView } from 'react-native-webview';
 
