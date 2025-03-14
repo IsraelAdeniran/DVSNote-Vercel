@@ -1,11 +1,15 @@
+import { rmSync } from "fs";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
         optimizeCss: true,
     },
-    webpack(config) {
-        return config;
-    },
 };
+
+if (process.env.NODE_ENV === "production") {
+    rmSync(".next/static/css", { recursive: true, force: true });
+    console.log("🔥 Deleted _next/static/css/ after build!");
+}
 
 export default nextConfig;
