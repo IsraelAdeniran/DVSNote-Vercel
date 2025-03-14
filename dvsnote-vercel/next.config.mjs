@@ -4,16 +4,6 @@ const nextConfig = {
         optimizeCss: true,
     },
     webpack(config) {
-        config.module.rules.push({
-            test: /\.css$/,
-            exclude: /\.module\.css$/,
-            use: [
-                {
-                    loader: require.resolve("ignore-loader"),
-                },
-            ],
-        });
-
         return config;
     },
 };
