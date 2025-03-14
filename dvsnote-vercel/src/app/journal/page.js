@@ -19,7 +19,7 @@ import {
   ArrowForwardIos as ArrowForwardIosIcon,
 } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
-import styles from '@/app/journal/journal.module.css';
+import styles from './journal.module.css';
 
 export default function Journal() {
   const router = useRouter();
