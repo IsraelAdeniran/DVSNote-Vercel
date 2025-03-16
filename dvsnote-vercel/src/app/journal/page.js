@@ -19,6 +19,7 @@ import {
   ArrowForwardIos as ArrowForwardIosIcon,
 } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
+import styles from './journal.module.css';
 
 export default function Journal() {
   const router = useRouter();
@@ -101,53 +102,53 @@ export default function Journal() {
   ];
 
   return (
-      <Box className="mainContainer">
-        <Box className="header">
-          <Typography variant="h6" className="promptText">Dear Me</Typography>
-          <Box className="datePickerContainer">
-            <IconButton className="dateNavigationButton" onClick={goToPreviousDay} disabled={selectedDate.isBefore(dayjs('2000-01-01'), 'day')}>
-              <ArrowBackIosIcon />
-            </IconButton>
-            <Typography className="datePickerInput">{selectedDate.format('YYYY-MM-DD')}</Typography>
-            <IconButton className="dateNavigationButton" onClick={goToNextDay} disabled={selectedDate.isSame(dayjs(), 'day')}>
-              <ArrowForwardIosIcon />
-            </IconButton>
-          </Box>
-        </Box>
-
-        {journalTitle && (
-            <Typography variant="h5" style={{ marginTop: '16px', textAlign: 'center', fontWeight: 'bold' }}>
-              {journalTitle}
-            </Typography>
-        )}
-
-        <TextareaAutosize
-            minRows={15}
-            className="textarea"
-            placeholder="Write your day and express your emotions..."
-            value={journalEntry}
-            onChange={(e) => setJournalEntry(e.target.value)}
-        />
-
-        <Button className="saveButton" onClick={handleSave} disabled={loading}>
-          {loading ? (
-              <>
-                <CircularProgress size={20} style={{ marginRight: 8 }} />
-                Saving...
-              </>
-          ) : (
-              'Save Entry'
-          )}
-        </Button>
-
-        <Box className="bottomNav">
-          {navItems.map((item) => (
-              <Button key={item.text} className="navItem" onClick={() => router.push(item.link)}>
-                {item.icon}
-                <Typography variant="caption">{item.text}</Typography>
-              </Button>
-          ))}
+    <Box className={styles.mainContainer}>
+      <Box className={styles.header}>
+        <Typography variant="h6" className={styles.promptText}>Dear Me</Typography>
+        <Box className={styles.datePickerContainer}>
+          <IconButton className={styles.dateNavigationButton} onClick={goToPreviousDay} disabled={selectedDate.isBefore(dayjs('2000-01-01'), 'day')}>
+            <ArrowBackIosIcon />
+          </IconButton>
+          <Typography className={styles.datePickerInput}>{selectedDate.format('YYYY-MM-DD')}</Typography>
+          <IconButton className={styles.dateNavigationButton} onClick={goToNextDay} disabled={selectedDate.isSame(dayjs(), 'day')}>
+            <ArrowForwardIosIcon />
+          </IconButton>
         </Box>
       </Box>
+
+      {journalTitle && (
+        <Typography variant="h5" style={{ marginTop: '16px', textAlign: 'center', fontWeight: 'bold' }}>
+          {journalTitle}
+        </Typography>
+      )}
+
+      <TextareaAutosize
+        minRows={15}
+        className={styles.textarea}
+        placeholder="Write your day and express your emotions..."
+        value={journalEntry}
+        onChange={(e) => setJournalEntry(e.target.value)}
+      />
+
+      <Button className={styles.saveButton} onClick={handleSave} disabled={loading}>
+        {loading ? (
+          <>
+            <CircularProgress size={20} style={{ marginRight: 8 }} />
+            Saving...
+          </>
+        ) : (
+          'Save Entry'
+        )}
+      </Button>
+
+      <Box className={styles.bottomNav}>
+        {navItems.map((item) => (
+          <Button key={item.text} className={styles.navItem} onClick={() => router.push(item.link)}>
+            {item.icon}
+            <Typography variant="caption">{item.text}</Typography>
+          </Button>
+        ))}
+      </Box>
+    </Box>
   );
 }
